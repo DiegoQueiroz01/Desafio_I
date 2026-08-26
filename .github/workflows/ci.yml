@@ -24,8 +24,10 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run Pytest
+        env:
+          PYTHONPATH: .
         run: |
-          pytest tests/ -v
+          python -m pytest tests/ -v
 
   sast:
     name: Run Semgrep SAST Scan
